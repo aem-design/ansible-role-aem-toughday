@@ -1,0 +1,13 @@
+---
+
+docker_image_user: "aemdesign"
+docker_image_name: "toughday"
+docker_image: "{{ docker_image_user }}/{{ docker_image_name }}"
+docker_image_tag: "latest"
+docker_container_name: "toughday"
+
+java_opts: "-Xmx1024m"
+tool_name: "toughday-6.1.jar"
+
+
+docker_command: "java {{ java_opts }} -Dhostname={{ service_author_host }} -Dport={{ service_author_port }} -DuploadImage.count=10 -jar {{ tool_name }} uploadImage"

@@ -1,0 +1,44 @@
+---
+
+- name: "set facts"
+  set_fact:
+    role_file_source: "{{ role_path }}/files/docker/"
+    role_comment: "( {{ docker_container_name | default('toughday') }} )"
+
+- name: ensure container is started {{ role_comment }}
+  include_role:
+    name: aem_design.docker_container
+  vars:
+    env:
+      TZ: "{{ docker.timezone }}"
+    command: "{{ docker_command }}"
+  tags:
+    - docker-container
+#
+#  - name: ensure container is started{{ role_comment }}
+#    docker_container:
+#      name: "{{ docker_container_name }}"
+#      image: "{{ docker_image }}:{{ docker_image_tag }}"
+#      state: started
+#      privileged: yes
+#      published_ports: "{{ docker_published_ports }}"
+#      restart_policy: "{{ docker_restart_policy }}"
+#      volumes: "{{ docker_volumes }}"
+#      volume_driver: "{{ docker_volume_driver }}"
+#      pull: "{{ docker_registry_images_pull }}"
+#      env: "{{ env }}"
+#        TZ: "{{ docker.timezone }}"
+#      command: "{{ docker_command }}"
+#    become: yes
+#    tags:
+#      - toughday-dam
+
+#  - name: remove toughday container
+#    docker_container:
+#      name: "{{ docker_container_name }}"
+#      state: absent
+#      keep_volumes: False
+#      privileged: true
+#    become: yes
+#    tags:
+#      - toughday-dam
