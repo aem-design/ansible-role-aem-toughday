@@ -40,7 +40,8 @@ This role depends on role `aem_design.aem_toughday`.
 ```yaml
 - hosts: all
   roles:
-    - aem_design.aem_toughday
+    - { role: aem_design.aem_toughday
+    }
 ```
 
 ## License
