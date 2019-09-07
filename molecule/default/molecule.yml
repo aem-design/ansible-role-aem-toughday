@@ -1,8 +1,6 @@
 ---
 dependency:
-  - name: galaxy
-    options:
-      roles-path: requirements.yml
+  name: galaxy
 driver:
   name: docker
 lint:
