@@ -9,4 +9,7 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - role: ansible-role-aem-toughday
+    - {
+      role: ansible-role-aem-toughday,
+      debug_hide: false
+    }
