@@ -10,6 +10,6 @@
 
   roles:
     - {
-      role: ansible-role-aem-toughday,
+      role: aem_design.aem_toughday,
       debug_hide: false
     }
