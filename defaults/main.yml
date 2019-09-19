@@ -5,6 +5,7 @@ docker_image_name: "toughday"
 docker_image: "{{ docker_image_user }}/{{ docker_image_name }}"
 docker_image_tag: "latest"
 docker_container_name: "toughday"
+docker_timezone: "Australia/Melbourne"
 
 java_opts: "-Xmx1024m"
 tool_name: "toughday-6.1.jar"

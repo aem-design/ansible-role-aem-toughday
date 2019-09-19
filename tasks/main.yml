@@ -10,7 +10,7 @@
     name: aem_design.docker_container
   vars:
     env:
-      TZ: "{{ docker.timezone }}"
+      TZ: "{{ docker_timezone }}"
     command: "{{ docker_command }}"
   tags:
     - docker-container
@@ -27,7 +27,7 @@
 #      volume_driver: "{{ docker_volume_driver }}"
 #      pull: "{{ docker_registry_images_pull }}"
 #      env: "{{ env }}"
-#        TZ: "{{ docker.timezone }}"
+#        TZ: "{{ docker_timezone }}"
 #      command: "{{ docker_command }}"
 #    become: yes
 #    tags:
