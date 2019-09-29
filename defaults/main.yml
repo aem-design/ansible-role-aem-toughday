@@ -1,14 +1,16 @@
 ---
 
-docker_image_user: "aemdesign"
-docker_image_name: "toughday"
-docker_image: "{{ docker_image_user }}/{{ docker_image_name }}"
-docker_image_tag: "latest"
-docker_container_name: "toughday"
-docker_timezone: "Australia/Melbourne"
+docker_image_user: "aemdesign"                                                          # docker user for image
+docker_image_name: "toughday"                                                           # docker image name
+docker_image: "{{ docker_image_user }}/{{ docker_image_name }}"                         # full docker image
+docker_image_tag: "latest"                                                              # docker image tag
+docker_container_name: "toughday"                                                       # default container name
+docker_timezone: "Australia/Melbourne"                                                  # timezone
 
-java_opts: "-Xmx1024m"
-tool_name: "toughday-6.1.jar"
+java_opts: "-Xmx1024m"                                                                  # java options
+tool_name: "toughday-6.1.jar"                                                           # tool to use toughday2-0.2.1.jar, toughday2-0.9.2.jar, toughday-6.1.jar
 
 
-docker_command: "java {{ java_opts }} -Dhostname={{ service_author_host }} -Dport={{ service_author_port }} -DuploadImage.count=10 -jar {{ tool_name }} uploadImage"
+docker_command: "java {{ java_opts }} -Dhostname={{ service_author_host }} -Dport={{ service_author_port }} -DuploadImage.count=10 -jar {{ tool_name }} uploadImage"               # tool command
+
+docker_host: "unix://var/run/docker.sock"    # host where to run the docker container for executing pyaem2 commands

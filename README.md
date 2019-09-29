@@ -14,16 +14,23 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-| Variable              	| Default                                                                                                                                              	| Notes                       	|
-|-----------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------	|-----------------------------	|
-| docker_image_user     	| aemdesign                                                                                                                                            	| hub.docker role owner       	|
-| docker_image_name     	| "toughday"                                                                                                                                           	| hub.docker image name       	|
-| docker_image          	| "{{ docker_image_user }}/{{ docker_image_name }}"                                                                                                    	| image to use                	|
-| docker_image_tag      	| "latest"                                                                                                                                             	| image tag                   	|
-| docker_container_name 	| "toughday"                                                                                                                                           	| new container name          	|
-| java_opts             	| "-Xmx1024m"                                                                                                                                          	|                             	|
-| tool_name             	| "toughday-6.1.jar"                                                                                                                                   	|                             	|
-| docker_command        	| "java {{ java_opts }} -Dhostname={{ service_author_host }} -Dport={{ service_author_port }} -DuploadImage.count=10 -jar {{ tool_name }} uploadImage" 	| params to pass to test tool 	|
+| Name                  	| Required 	| Default                                                                                                                                            	| Notes                                                                  	|
+|-----------------------	|----------	|----------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------	|
+| docker_image_user     	|          	| aemdesign                                                                                                                                          	| docker user for image                                                  	|
+| docker_image_name     	|          	| toughday                                                                                                                                           	| docker image name                                                      	|
+| docker_image          	|          	| {{ docker_image_user }}/{{ docker_image_name }}                                                                                                    	| full docker image                                                      	|
+| docker_image_tag      	|          	| latest                                                                                                                                             	| docker image tag                                                       	|
+| docker_container_name 	|          	| toughday                                                                                                                                           	| default container name                                                 	|
+| docker_timezone       	|          	| Australia/Melbourne                                                                                                                                	| timezone                                                               	|
+|                       	|          	|                                                                                                                                                    	|                                                                        	|
+| java_opts             	|          	| -Xmx1024m                                                                                                                                          	| java options                                                           	|
+| tool_name             	|          	| toughday-6.1.jar                                                                                                                                   	| tool to use toughday2-0.2.1.jar, toughday2-0.9.2.jar, toughday-6.1.jar 	|
+|                       	|          	|                                                                                                                                                    	|                                                                        	|
+|                       	|          	|                                                                                                                                                    	|                                                                        	|
+| docker_command        	|          	| java {{ java_opts }} -Dhostname={{ service_author_host }} -Dport={{ service_author_port }} -DuploadImage.count=10 -jar {{ tool_name }} uploadImage 	| tool command                                                           	|
+|                       	|          	|                                                                                                                                                    	|                                                                        	|
+| docker_host           	|          	| unix://var/run/docker.sock                                                                                                                         	| host where to run the docker container for executing pyaem2 commands   	|
+|                       	|          	|                                                                                                                                                    	|                                                                        	|
 
 ## Included Tools
 
